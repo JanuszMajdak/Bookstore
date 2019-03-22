@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <title>Book Form</title>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Book Form</h2>
+
+    <div class="alert alert-warning" th:if="${errorMessage !=null}" th:text="${errorMessage}">
+        <strong>Warning!</strong>${errorMessage}</a>
+    </div>
+
+    <form action="/book/save" th:object="${book}" th:if="${book != null}" method="post">
+
+        <div class="form-group">
+
+            <label for="category">Category:</label>
+
+            <input th:field="*{category}" type="text" class="form-control" id="category" placeholder="Enter category" name="category">
+
+        </div>
+
+
+        <div class="form-group">
+
+            <label for="title">Title:</label>
+
+            <input th:field="*{title}" type="text" class="form-control" id="title" placeholder="Enter title"
+                   name="title">
+
+        </div>
+
+        <div class="form-group">
+
+            <label for="author">Author:</label>
+
+            <input th:field="*{author}" type="text" class="form-control" id="author" placeholder="Enter author"
+                   name="author">
+
+        </div>
+        <div class="form-group">
+
+            <label for="publisher">Publisher:</label>
+            <!--     <select class="form-control">
+
+              <option> ANDROMEDA</option>
+                  <option>CARINA</option>
+                  <option>GEMINI</option>
+                  <option>LIBRA</option>
+                  <option>TAURUS</option>
+              </select> !-->
+
+            <input th:field="*{publisher}" type="text" class="form-control" id="publisher" placeholder="Enter publisher" name="publisher">
+
+
+        </div>
+        <div class="form-group">
+
+            <label for="releaseYear">Release Year:</label>
+
+            <input th:field="*{releaseYear}" type="text" class="form-control" id="releaseYear"
+                   placeholder="Enter release year" name="releaseYear">
+
+        </div>
+        <div class="form-group">
+
+            <label for="price">Price:</label>
+
+            <input th:field="*{price}" type="text" class="form-control" id="price" placeholder="Enter price"
+                   name="price">
+
+        </div>
+        <div class="form-group">
+
+            <label for="availableQuantity">Available quantity:</label>
+
+            <input th:field="*{availableQuantity}" type="text" class="form-control" id="availableQuantity"
+                   placeholder="Enter available quantity" name="availableQuantity">
+
+        </div>
+        <div class="form-group">
+
+            <label for="isbn">ISBN:</label>
+
+            <input th:field="*{isbn}" type="text" class="form-control" id="isbn" placeholder="Enter isbn" name="isbn">
+
+        </div>
+
+
+        <input type="hidden" name="id" th:field="*{id}"/>
+
+        <button type="submit" class="btn btn-primary">Save</button>
+
+
+    </form>
+
+</div>
+
+</body>
+
+</html>

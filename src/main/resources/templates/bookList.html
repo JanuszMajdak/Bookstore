@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+
+<html xmlns:th="http://www.thymeleaf.org">   <!--importujemy przestrzeń nazw thymeleafa!-->
+
+<head>
+
+    <title>Getting Started: Serving Web Content</title>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+
+</head>
+
+<body>
+
+<!--wypisujemy liste książęk!-->
+
+<div class="container">
+    <h2>Books List</h2>
+
+    <table class="table">
+        <thead>
+        <tr>
+
+            <th> Id</th>
+
+            <th> Category</th>
+            <th> Title</th>
+
+            <th> Author</th>
+            <th> Publisher</th>
+
+            <th> Release year</th>
+
+            <th> Price</th>
+
+            <th> Available quantity</th>
+
+            <th> ISBN</th>
+
+            <th> Delete </th>
+
+            <th> Edit </th>
+
+            <th> Show book</th>
+
+        </tr>
+
+        </thead>
+        <tbody>
+        <tr th:if="${books.empty}">
+
+            <td colspan="2"> No books available</td>
+
+        </tr>
+
+        <tr th:each="book : ${books}">
+
+            <td><span th:text="${book.id}"> Id default value </span></td>
+
+            <td><span th:text="${book.category}"> Name default value  </span></td>
+
+            <td><span th:text="${book.title}"> Price default value </span></td>
+
+            <td><span th:text="${book.author}"> Product type default value </span></td>
+
+            <td><span th:text="${book.publisher}"> Id default value </span></td>
+
+            <td><span th:text="${book.releaseYear}"> Name default value  </span></td>
+
+            <td><span th:text="${book.price}"> Price default value </span></td>
+
+            <td><span th:text="${book.availableQuantity}"> Product type default value </span></td>
+
+            <td><span th:text="${book.isbn}"> Product type default value </span></td>
+
+            <td><span><a th:href="@{/book/delete(id=${book.id})}">Delete</a></span></td>
+
+            <td><span><a th:href="@{/book/edit(id=${book.id})}">Edit</a></span></td>
+
+            <td><span><a th:href="@{/book(id=${book.id})}">Show book</a></span></td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+</body>
+
+</html>
